@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/google-fonts", "@nuxt/ui"],
+  modules: ["@nuxtjs/google-fonts", "@nuxt/ui", "@nuxt/image"],
   googleFonts: {
     families: {
       "Work Sans": true,
@@ -11,7 +11,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      link: [{ rel: "icon", type: "image/svg", href: "/favicon.svg" }],
+      link: [{ rel: "icon", type: "image/", href: "/favicon.svg" }],
     },
   },
+  ui: {
+    global: true
+  },
+  image:{
+    dir: ""
+  }
 });
