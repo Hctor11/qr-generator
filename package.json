@@ -17,6 +17,9 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.2.0",
-    "@nuxt/ui": "^2.12.0"
+    "@nuxt/ui": "^2.12.0",
+    "lean-qr": "^2.3.2",
+    "qrcode.vue": "^3.4.1",
+    "vue-qrcode-component": "^2.1.1"
   }
 }
