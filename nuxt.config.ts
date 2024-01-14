@@ -17,5 +17,5 @@ export default defineNuxtConfig({
   },
   image:{
     format: ["svg"]
-  }
+  },
 });
