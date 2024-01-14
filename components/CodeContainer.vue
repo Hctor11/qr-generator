@@ -3,19 +3,19 @@
     <UInput color="blue" variant="outline" placeholder="Put your link here..." v-model="valueinput" class="w-full pb-3" />
     <div class="colors flex gap-6 w-full">
       <div class="flex gap-1">
-      <label for="bg">Background:</label>
-      <input type="color" name="bg" class="" v-model="background">
+        <label for="bg">Background:</label>
+        <input type="color" name="bg" class="" v-model="background">
+      </div>
+      <div class="">
+        <label for="bg">Foreground:</label>
+        <input type="color" name="fg" class="border border-3 rounded" v-model="foreground">
+      </div>
     </div>
-    <div class="">
-      <label for="bg">Foreground:</label>
-      <input type="color" name="fg" class="border border-3 rounded" v-model="foreground">
+    <div class="qrcode" ref="qrcode">
+      <Qrcode class="p-3" :value="computedQrValue" :level="level" :render-as="renderAs" :margin="1" :background="background"
+        :foreground="foreground" :size="324" />
     </div>
-    </div>
-    <div class="qrcode mb-3" ref="qrcode">
-      <Qrcode :value="computedQrValue" :level="level" :render-as="renderAs" :margin="1" :background="background"
-        :foreground="foreground" :size="300" />
-    </div>
-    <UButton color="black" icon="i-heroicons-arrow-down-tray" @click="downloadQrCode()">Download SVG</UButton>
+    <UButton class="my-4" color="black" icon="i-heroicons-arrow-down-tray" @click="downloadQrCode()">Download SVG</UButton>
   </div>
 </template>
 
