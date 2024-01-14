@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="qrcode" ref="qrcode">
-      <Qrcode class="p-3" :value="computedQrValue" :level="level" :render-as="renderAs" :margin="1" :background="background"
+      <Qrcode class="qrcode" :value="computedQrValue" :level="level" :render-as="renderAs" :margin="1" :background="background"
         :foreground="foreground" :size="324" />
     </div>
     <UButton class="my-4" color="black" icon="i-heroicons-arrow-down-tray" @click="downloadQrCode()">Download SVG</UButton>
@@ -33,6 +33,13 @@ const svgContent = ref<string | null>(null);
 
 const computedQrValue = computed(() => valueinput.value);
 
+const generateSvgContent = () => {
+  const qrcodeElement = document.querySelector('.qrcode');
+  if (qrcodeElement) {
+    svgContent.value = qrcodeElement.innerHTML;
+  }
+};
+
 onMounted(() => {
   // Access the generated SVG content directly after the component is mounted
   const qrcodeElement = document.querySelector('.qrcode');
@@ -42,6 +49,8 @@ onMounted(() => {
 });
 
 const downloadQrCode = () => {
+  generateSvgContent(); // Regenerate the SVG content with the latest input
+
   if (!svgContent.value) {
     console.error('SVG content not generated');
     return;
