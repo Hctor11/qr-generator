@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: "icon", type: "image/", href: "/favicon.svg" }],
+      title: "QR Generator"
     },
   },
   image:{
