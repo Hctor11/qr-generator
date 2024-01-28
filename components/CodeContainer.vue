@@ -3,7 +3,7 @@
     <div class="input-set m-2 flex-col">
       <UTextarea :rows="4" color="blue" variant="outline" placeholder="Put your link here..." v-model="valueinput"
         class="w-full pb-3" />
-      <div class="colors flex gap-6 w-full">
+      <div class="colors flex-col md:flex-row flex gap-6 w-full">
         <div class="flex gap-1">
           <label for="bg">Background:</label>
           <input type="color" name="bg" class="" v-model="background">
@@ -14,15 +14,24 @@
         </div>
       </div>
 
-      <div class="">
+      <div class="md:mt-12">
         <p class="text-sm opacity-50">examples</p>
 
-        <button class="border rounded-md flex items-center">
+        <button class="border hover:bg-zinc-100 rounded-md mb-2 flex items-center h-15 w-full" @click="setValueInput('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">
           <div class="image">
-            <NuxtImg src="/images/rick.jpg" width="100" />
+            <NuxtImg src="/images/rick.jpg" width="60" />
           </div>
           <div class="text">
-            <h2 class="text-pretty font-normal text-md">Rick Astley - Never Gonna Give You Up (Official Music Video)</h2>
+            <h2 class="p-1 font-normal text-sm">Rick Astley - Never Gonna Give You Up (Official Music Video)</h2>
+          </div>
+        </button>
+
+        <button class="border hover:bg-zinc-100 rounded-md flex items-center h-15 w-full" @click="setValueInput('https://www.youtube.com/watch?v=jNQXAC9IVRw')">
+          <div class="image">
+            <NuxtImg src="/images/MeZoo.jpg" width="60" />
+          </div>
+          <div class="text">
+            <h2 class="p-3 font-normal text-sm">Me at the zoo</h2>
           </div>
         </button>
 
@@ -69,6 +78,10 @@ onMounted(() => {
     svgContent.value = qrcodeElement.innerHTML;
   }
 });
+
+const setValueInput = (newValue: string) => {
+  valueinput.value = newValue;
+};
 
 const downloadQrCode = () => {
   generateSvgContent(); // Regenerate the SVG content with the latest input

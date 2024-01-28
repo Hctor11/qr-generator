@@ -14,7 +14,7 @@ const isDark = computed({
 </script>
 
 <template>
-  <nav class="flex p-2 justify-between flex-row-reverse border-b">
+  <nav class="flex p-2 justify-between flex-row-reverse border-b md:mb-12">
     <ClientOnly>
       <UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray" variant="ghost"
         aria-label="Theme" @click="isDark = !isDark" />
@@ -30,9 +30,6 @@ const isDark = computed({
     </a>
   </nav>
   <CodeContainer />
-
-  <div class="examples flex justify-center flex-col items-center w-9/12 md:flex-row m-auto py-6">
-  </div>
 </template>
 
 <style scoped>
