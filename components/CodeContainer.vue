@@ -1,21 +1,43 @@
 <template>
-  <div class="flex justify-center flex-col items-center w-9/12 md:w-2/6 m-auto py-6">
-    <UInput color="blue" variant="outline" placeholder="Put your link here..." v-model="valueinput" class="w-full pb-3" />
-    <div class="colors flex gap-6 w-full">
-      <div class="flex gap-1">
-        <label for="bg">Background:</label>
-        <input type="color" name="bg" class="" v-model="background">
+  <div class="flex justify-center flex-col items-start w-9/12 md:flex-row m-auto py-6">
+    <div class="input-set m-2 flex-col">
+      <UTextarea :rows="4" color="blue" variant="outline" placeholder="Put your link here..." v-model="valueinput"
+        class="w-full pb-3" />
+      <div class="colors flex gap-6 w-full">
+        <div class="flex gap-1">
+          <label for="bg">Background:</label>
+          <input type="color" name="bg" class="" v-model="background">
+        </div>
+        <div class="">
+          <label for="bg">Foreground:</label>
+          <input type="color" name="fg" class="border border-3 rounded" v-model="foreground">
+        </div>
       </div>
+
       <div class="">
-        <label for="bg">Foreground:</label>
-        <input type="color" name="fg" class="border border-3 rounded" v-model="foreground">
+        <p class="text-sm opacity-50">examples</p>
+
+        <button class="border rounded-md flex items-center">
+          <div class="image">
+            <NuxtImg src="/images/rick.jpg" width="100" />
+          </div>
+          <div class="text">
+            <h2 class="text-pretty font-normal text-md">Rick Astley - Never Gonna Give You Up (Official Music Video)</h2>
+          </div>
+        </button>
+
       </div>
+
     </div>
-    <div class="qrcode" ref="qrcode">
-      <Qrcode class="qrcode" :value="computedQrValue" :level="level" :render-as="renderAs" :margin="1" :background="background"
-        :foreground="foreground" :size="324" />
+
+    <div class="qr-button">
+      <div class="qrcode border" ref="qrcode">
+        <Qrcode class="qrcode" :value="computedQrValue" :level="level" :render-as="renderAs" :margin="1"
+          :background="background" :foreground="foreground" :size="324" />
+      </div>
+      <UButton block class="my-4" color="black" icon="i-heroicons-arrow-down-tray" @click="downloadQrCode()">Download SVG
+      </UButton>
     </div>
-    <UButton class="my-4" color="black" icon="i-heroicons-arrow-down-tray" @click="downloadQrCode()">Download SVG</UButton>
   </div>
 </template>
 

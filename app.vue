@@ -16,19 +16,23 @@ const isDark = computed({
 <template>
   <nav class="flex p-2 justify-between flex-row-reverse border-b">
     <ClientOnly>
-    <UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray" variant="ghost"
-      aria-label="Theme" @click="isDark = !isDark" />
+      <UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray" variant="ghost"
+        aria-label="Theme" @click="isDark = !isDark" />
 
-    <template #fallback>
-      <div class="w-8 h-8" />
-    </template>
-  </ClientOnly>
+      <template #fallback>
+        <div class="w-8 h-8" />
+      </template>
+    </ClientOnly>
 
-  <a href="/">
-    <NuxtImg src="/images/logo.svg" width="200" height="200" class="rounded pointer-events-none dark:filter dark:invert transition-all" />
-  </a>
+    <a href="/">
+      <NuxtImg src="/images/logo.svg" width="200" height="200"
+        class="rounded pointer-events-none dark:filter dark:invert transition-all" />
+    </a>
   </nav>
-    <CodeContainer/>
+  <CodeContainer />
+
+  <div class="examples flex justify-center flex-col items-center w-9/12 md:flex-row m-auto py-6">
+  </div>
 </template>
 
 <style scoped>
